@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RPP Generator NESACI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+      /* Base typography for RPP Output */
+      .rpp-output {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 12pt;
+        line-height: 1.5;
+        color: #000;
+        text-align: justify;
+      }
+
+      /* Heading Styling */
+      .rpp-output h1 {
+        text-align: center;
+        font-weight: bold;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        font-size: 14pt;
+      }
+
+      .rpp-output h2, .rpp-output h3 {
+        text-align: left;
+        font-weight: bold;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        font-size: 12pt;
+      }
+
+      .rpp-output h4, .rpp-output h5, .rpp-output h6 {
+        font-weight: bold;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+        text-align: left;
+        font-size: 12pt;
+      }
+      
+      /* Bold formatting for emphasis */
+      .rpp-output strong, .rpp-output b {
+        font-weight: bold;
+      }
+
+      /* List Styling */
+      .rpp-output ul, .rpp-output ol {
+        margin-left: 2rem;
+        margin-bottom: 1rem;
+      }
+      .rpp-output ul { list-style-type: disc; }
+      .rpp-output ol { list-style-type: decimal; }
+
+      /* Table Styling */
+      .rpp-output table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        font-size: 12pt;
+        page-break-inside: auto; /* Allow breaks inside table container */
+      }
+      
+      .rpp-output tr {
+        page-break-inside: avoid; /* Prevent breaks inside rows */
+        page-break-after: auto;
+      }
+
+      .rpp-output th, .rpp-output td {
+        border: 1px solid #000; /* Standard black border for printing */
+        padding: 6px 8px;
+        text-align: left;
+        vertical-align: top;
+      }
+      .rpp-output th {
+        background-color: #f3f4f6;
+        font-weight: bold;
+        text-align: center;
+      }
+      
+      /* Print specific adjustments */
+      @media print {
+        body * {
+          visibility: hidden;
+        }
+        #rpp-content, #rpp-content * {
+          visibility: visible;
+        }
+        #rpp-content {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          margin: 0;
+          padding: 2cm; /* Standard margin for print */
+        }
+        .bg-white {
+            box-shadow: none !important;
+            border: none !important;
+        }
+        /* Ensure table rows don't break awkwardly in native print too */
+        tr {
+            page-break-inside: avoid;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.35.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3"
+  }
+}
+</script>
+</head>
+  <body class="bg-gray-50 text-gray-800">
+    <div id="root"></div>
+  </body>
+</html>

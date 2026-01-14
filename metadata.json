@@ -1,0 +1,5 @@
+{
+  "name": "RPP Generator NESACI",
+  "description": "Aplikasi generator RPP otomatis untuk guru menggunakan Google Gemini API, mendukung Kurikulum Merdeka dan Deep Learning.",
+  "requestFramePermissions": []
+}
